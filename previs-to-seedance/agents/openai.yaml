@@ -1,4 +1,4 @@
 interface:
   display_name: "影视预演流水线 Skill"
   short_description: "导演分镜、Higgsfield 运镜对照、Blender 预演与多风格成片"
-  default_prompt: "使用 $previs-to-seedance，由导演专家设计分镜，以 Higgsfield 作为运镜参考和验收标准，确认 Blender 预演与目标风格参考后，按 Seedance 2.5 规则编写提示词并经授权通过 LiClick 生成；禁止 Higgsfield 生图或生视频。"
+  default_prompt: "使用 $previs-to-seedance，由导演专家设计分镜，以 Higgsfield 作为运镜参考和验收标准，确认 Blender 预演与目标风格参考后，按 Seedance 2.5 规则编写提示词，并经授权通过已配置的 Seedance 2.5 入口生成；禁止 Higgsfield 生图或生视频。"

@@ -1,8 +1,8 @@
 ---
 name: previs-to-seedance
-description: Use when the user requests the 影视预演流水线 Skill, Blender geometric previsualization with Higgsfield camera references, or conversion of approved previs into a specified final visual style through LiClick Seedance.
+description: Use when the user requests the 影视预演流水线 Skill, Blender geometric previsualization with Higgsfield camera references, or conversion of approved previs into a specified final visual style through an authorized Seedance 2.5 entry point.
 metadata:
-  version: "2.11"
+  version: "2.12"
   author: "Custom"
 ---
 
@@ -10,7 +10,7 @@ metadata:
 
 核心：预演决定镜头与动作，目标风格参考决定最终外观。成片可以是真人、3D 写实、2D 卡通等，不默认真人化；几何占位体不是最终角色、道具或场景。
 
-流程：创意 → 实际查看 Higgsfield 参考并提炼运镜标准 → 编剧稿 → 导演分镜、调度与独立审稿关卡 → Blender Blockout / Playblast → 导演意图及 Higgsfield 对照检查、修正与复检 → 目标风格参考审核 → Seedance 2.5 提示词审核 → LiClick 生成 → 运镜、动作与风格联合验收。
+流程：创意 → 实际查看 Higgsfield 参考并提炼运镜标准 → 编剧稿 → 导演分镜、调度与独立审稿关卡 → Blender Blockout / Playblast → 导演意图及 Higgsfield 对照检查、修正与复检 → 目标风格参考审核 → Seedance 2.5 提示词审核 → Seedance 2.5 生成 → 运镜、动作与风格联合验收。
 
 Higgsfield 贯穿运镜设计与验收，职责为 **运镜参考和验收标准**，不是生图、生视频或必需的文字分镜 API。
 
@@ -23,19 +23,19 @@ Higgsfield 贯穿运镜设计与验收，职责为 **运镜参考和验收标准
 | 相机运动实现 | Blender MCP 建立低模空间、主体动作与相机关键帧，导出 Playblast，不承担最终风格渲染 |
 | 目标风格 | Codex 整理用户素材；需要新生成角色、场景、道具或首帧资产图时统一使用 imagegen，交用户审核 |
 | 2.5 提示词 | Codex 使用 seedance-25-rules 转换确认的导演意图、预演和参考素材，逐一绑定并自检 |
-| 最终视频 | 仅 LiClick 调用已核实的 Seedance 版本生成；用户拼写 licklick 也指 LiClick |
+| 最终视频 | 通过已配置并有权限使用的 Seedance 2.5 入口生成，不擅自替换模型或入口 |
 | 验收 | Codex 检查运镜、动作、风格和技术指标；最终选择由用户确认 |
 
 导演与提示词专家是 Codex 执行的专业规则，不自动代表独立模型或代理。未实际调用时，不声称 Higgsfield 写了分镜或输出了轨迹。
 
-分镜阶段前必须完整读取当前技能目录中的 screenplay-expert。2.5 提示词阶段前必须读取 seedance-25-rules 及其要求的核心规则、白模/多素材相关章节。提交前读取 lilclick-ai 和相关 API 文档。复用本作品已读取的上下文；技能缺失时说明，不虚称使用或自行安装。
+分镜阶段前必须完整读取当前技能目录中的 screenplay-expert。2.5 提示词阶段前必须读取 seedance-25-rules 及其要求的核心规则、白模/多素材相关章节。提交前读取当前 Seedance 2.5 入口及相关 API 文档。复用本作品已读取的上下文；技能或入口缺失时说明，不虚称使用或自行安装。
 
 导演规则用于实现用户剧情，不得把已确认剧情当模板改写。已有批准分镜、预演或参考，从对应阶段继续，只审核受变更影响的部分。
 
 ## 不变边界
 
 - 全程禁止 Higgsfield generate_video，也禁止 Higgsfield 生图及内部触发生图/视频的分镜功能。
-- 最终视频只走 LiClick。不得使用旧 my-seedance、直接供应商接口或其他视频平台替代。assets/seedance-mcp-server.js 保持非活动，不安装或执行。
+- 最终视频只使用已配置并有权限使用的 Seedance 2.5 入口。不得擅自改用其他模型、未核实接口或其他视频平台替代。
 - Blender 仅做简单网格、平涂材质的几何预演：简化外观，保留表达与检查动作所需的最低结构。所有使用本 Skill 的题材和目标风格均适用，不为消除低模残留擅自升级成最终渲染流程，也不删除必要动作结构。
 - 所有新制作并交付的素材默认采用 9:16 竖屏，包括分镜图、布局检查图、角色/场景参考图、首帧、Blender Playblast 和最终视频；仅在用户明确指定其他比例时覆盖，不因检查用途擅自改为横屏。已有外部参考不强制裁改。
 - 从构图阶段按 9:16 设置相机和画布，不把横版图直接拉伸或裁掉关键动作充当竖版。导出后核验实际宽高比为 9:16（如 540×960、720×1280 或 1080×1920），确保接触点、主体全身及 UI 在画内。
@@ -54,7 +54,7 @@ Higgsfield 贯穿运镜设计与验收，职责为 **运镜参考和验收标准
 - 无可查看参考或访问受限时，主动查找本作品已有素材、可用只读目录及可访问预览；确实无法取得时及时报告具体缺口并索取片段/链接。仅阻止依赖缺失参考的审核放行及下游付费生成，不停止已获授权、原因明确的本地修正。不得先制作完整预演再以 UNVERIFIED 说明补手续。诊断草案不能作为通过审核的预演。只有用户明确更改本项规则才可跳过；“继续”“可以”“直接出视频”或对局部动作的认可不构成豁免。
 - 无需 Higgsfield MCP 安装、登录或纯文字工具才能写本地分镜。已核实的只读描述可辅助理解，但预设名称不能代替观看效果。
 - 新建/修改预演前检查 Blender MCP 与场景；仅复用批准的 Playblast 时验证文件，不要求重建场景。
-- 提交前核实 LiClick 配置、实际模型标识、模式、素材顺序/类型/数量限制与音频参数。文档与实际入口不一致时核实差异，不能默默降级。
+- 提交前核实 Seedance 2.5 入口配置、实际模型标识、模式、素材顺序/类型/数量限制与音频参数。文档与实际入口不一致时核实差异，不能默默降级。
 
 ## 1. 导演脚本与运镜标准
 
@@ -169,7 +169,7 @@ storyboard.json 至少包含 shot_id、duration_sec、target_style、scene_desc�
 
 提交前执行去重：同一个动作或限制在最相关的位置完整说明一次，其他段落引用对应素材或事件，不在剧情、运镜、阶段、一致性中反复展开同一过程。保留身份、先后因果、用户锁定动作、声音及结束状态；删除重复措辞而非删需求，不设置机械字数上限。预演未表达清楚的动作先按前述规则补结构/参考，不用越来越长的提示词冒充修复。逐项审核主体映射、全片风格覆盖、运镜继承、参数与文件顺序，再经授权提交。
 
-通过 LiClick 提交后立即记录请求、模型/参数、参考资产 ID、request_id、时间与状态。只轮询原任务，不重复提交。
+通过 Seedance 2.5 入口提交后立即记录请求、模型/参数、参考资产 ID、request_id、时间与状态。只轮询原任务，不重复提交。
 
 ## 5. 联合验收与迭代
 
