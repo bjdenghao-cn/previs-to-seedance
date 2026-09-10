@@ -41,7 +41,7 @@ Copy-Item -Recurse -Force '.\previs-to-seedance\previs-to-seedance' $destination
 
 ### 方法二：只下载 ZIP
 
-从仓库 Releases 下载 `previs-to-seedance-v2.11.zip`，解压后确保目录结构为：
+从仓库根目录下载 `previs-to-seedance-v2.11.zip`，解压后确保目录结构为：
 
 ```text
 ~/.codex/skills/previs-to-seedance/
@@ -111,4 +111,3 @@ previs-to-seedance/
 - 当前版本：v2.11
 - 可见名称：影视预演流水线 Skill
 - 调用名称：`$previs-to-seedance`
-
