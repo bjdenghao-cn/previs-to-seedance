@@ -46,8 +46,7 @@ Copy-Item -Recurse -Force '.\previs-to-seedance\previs-to-seedance' $destination
 ~/.codex/skills/previs-to-seedance/
 ├── SKILL.md
 ├── agents/openai.yaml
-├── references/
-└── assets/
+└── references/
 ```
 
 ## 最小使用方式
