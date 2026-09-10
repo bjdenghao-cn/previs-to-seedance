@@ -1,0 +1,56 @@
+{
+  "project": {
+    "title": "示例：雨夜车站",
+    "aspect_ratio": "9:16",
+    "fps": 24,
+    "target_style": "电影感 3D 写实",
+    "total_duration_sec": 12
+  },
+  "shots": [
+    {
+      "shot_id": "S01",
+      "duration_sec": 5,
+      "target_style": "电影感 3D 写实",
+      "scene_desc": "雨夜空旷车站，角色位于站台中段，远处列车灯光进入画面。",
+      "character_action": "角色先听到列车声，再转身看向轨道方向并后退半步。",
+      "start_state": "角色侧身站立，视线朝站外，双脚稳定着地。",
+      "visible_result": "角色完成转身，列车灯光明显接近，角色与轨道方向关系清楚。",
+      "camera_motion": "低机位缓慢侧移并轻微推进，角色保持在画面中部偏右。",
+      "camera_reference": {
+        "source": "待提供的 Higgsfield 参考片段",
+        "time_range": "00:00-00:05",
+        "observed": "待实际查看后填写"
+      },
+      "camera_acceptance": [
+        "侧移方向与参考一致",
+        "推进速度先缓后快",
+        "角色与站台前景形成可见视差"
+      ],
+      "author": "Codex / screenplay-expert",
+      "provenance": "示例结构；非已通过的制作镜头"
+    },
+    {
+      "shot_id": "S02",
+      "duration_sec": 7,
+      "target_style": "电影感 3D 写实",
+      "scene_desc": "相机绕到角色正侧面，列车灯光扫过湿润站台。",
+      "character_action": "角色抬手遮挡强光并向安全线内退一步。",
+      "start_state": "角色刚完成转身，手臂自然垂下。",
+      "visible_result": "手臂完成遮光动作，支撑脚稳定，角色停在安全线内。",
+      "camera_motion": "短距离弧形绕行后稳定跟随，不穿入角色或站台设施。",
+      "camera_reference": {
+        "source": "待提供的 Higgsfield 参考片段",
+        "time_range": "00:05-00:12",
+        "observed": "待实际查看后填写"
+      },
+      "camera_acceptance": [
+        "弧线绕行不遮挡抬手动作",
+        "灯光进入后相机不无因抖动",
+        "结束构图完整显示角色落脚位置"
+      ],
+      "author": "Codex / screenplay-expert",
+      "provenance": "示例结构；非已通过的制作镜头"
+    }
+  ]
+}
+
